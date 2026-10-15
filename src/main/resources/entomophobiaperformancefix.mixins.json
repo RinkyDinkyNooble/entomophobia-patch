@@ -1,0 +1,19 @@
+{
+  "required": false,
+  "minVersion": "0.8.5",
+  "package": "com.rinkynooble.entomophobiaperformancefix.mixin",
+  "plugin": "com.rinkynooble.entomophobiaperformancefix.MixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "entomophobiaperformancefix.refmap.json",
+  "mixins": [
+    "CreateHuntSwarmsDecisionMixin",
+    "EntoForgeEventsMixin",
+    "FeatureMixin",
+    "NestMixin",
+    "RetaliateWithSwarmDecisionMixin",
+    "ShapeGeneratorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

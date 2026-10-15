@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="${mod_issues}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+displayURL="${mod_url}"
+logoFile="${mod_id}.png"
+logoBlur=false
+authors="${mod_authors}"
+credits="Entomophobia is made by Dr. Pilot. This is an unofficial patch for it."
+# Only changes the server's side, so a client and server don't have to match.
+displayTest="IGNORE_ALL_VERSION"
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="entomophobia"
+    mandatory=true
+    versionRange="${entomophobia_version_range}"
+    ordering="AFTER"
+    side="BOTH"
