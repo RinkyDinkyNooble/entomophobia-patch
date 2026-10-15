@@ -87,7 +87,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
                 missing.add(handler.substring(HANDLER_PREFIX.length()));
             }
         }
-        String simpleName = targetClassName.substring(targetClassName.lastIndexOf('.') + 1);
+        String simpleName = targetClassName.substring(targetClassName.lastIndexOf('.') + 1).replace('$', '.');
         if (missing.isEmpty()) {
             LOGGER.info("Patched {}: {} of {} changes applied.", simpleName, expected.size(), expected.size());
         } else {

@@ -1,3 +1,14 @@
+## 1.1.0 (2026-10-15)
+
+For Minecraft 1.20.1, Forge 47 and Entomophobia 1.1.1.
+
+- Fixed: each Hive has one brain. Entomophobia gave a new Hive two, one more each time its chunk loaded again, and in single player one more each time the player came near it. Each bred and sent out hunts on its own timer, so Hives bred and hunted several times as often as intended until the next restart.
+- Fixed: a Hive keeps its stored mobs when its chunk unloads and loads again. Before, its storage went back to what it was when the world loaded (nothing, for a Hive born that session), and mobs vanishing into it afterwards were lost at the next save.
+- Fixed: a Hive whose Heart stays unloaded for a whole session keeps its storage. Before, it was dropped from the save.
+- Fixed: the myiatic count behind the mob cap and the hunt limit only counts the myiatics loaded. Before, those loaded when the game closed were counted again every session, so the count crept up, myiatics far from players were culled early and hunts stopped.
+
+Only needed on the server (or in single player).
+
 ## 1.0.0 (2026-10-15)
 
 First version, for Minecraft 1.20.1, Forge 47 and Entomophobia 1.1.1.

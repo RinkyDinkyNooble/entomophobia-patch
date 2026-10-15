@@ -7,8 +7,12 @@
   "refmap": "entomophobiaperformancefix.refmap.json",
   "mixins": [
     "CreateHuntSwarmsDecisionMixin",
+    "DecisionMixin",
     "EntoForgeEventsMixin",
     "FeatureMixin",
+    "HiveHeartEntityMixin",
+    "HiveSaveDataMixin",
+    "NestChamberMixin",
     "NestMixin",
     "RetaliateWithSwarmDecisionMixin",
     "ShapeGeneratorMixin"

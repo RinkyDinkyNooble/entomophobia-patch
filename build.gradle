@@ -86,6 +86,23 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+// The /entoverify check commands (src/verify) in their own jar, loaded into the headless test servers with or
+// without the patch. Never shipped. gradlew verifyJar → build/libs/<mod_id>-<version>-verify.jar
+tasks.register('verifyJar', Jar) {
+    from sourceSets.verify.output
+    archiveClassifier = 'verify'
+    finalizedBy 'reobfVerifyJar'
+}
+
+reobf {
+    verifyJar {}
+}
+
+// The check jar has no mixins: without this, the mixin plugin names the patch's mixin config in its manifest.
+afterEvaluate {
+    tasks.named('addMixinsToVerifyJar').configure { enabled = false }
+}
+
 // Prints Entomophobia's chunk tickets and hive storage from a world's save files, for the headless server tests.
 // gradlew readSave -Pworld=research/server/world
 tasks.register('readSave', JavaExec) {

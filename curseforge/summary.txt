@@ -1,1 +1,1 @@
-Stops Entomophobia keeping chunks loaded forever and building nests where no player is, and stops its nests eating chests.
+Stops Entomophobia keeping chunks loaded forever and building nests where no player is, stops its nests eating chests, and fixes its Hives.

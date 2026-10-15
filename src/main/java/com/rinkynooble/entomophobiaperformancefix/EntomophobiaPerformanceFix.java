@@ -4,7 +4,9 @@ import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.world.ForgeChunkManager;
+import net.minecraftforge.event.server.ServerStoppedEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -27,11 +29,18 @@ public class EntomophobiaPerformanceFix {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(Config::onLoad);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(Config::onReload);
+        MinecraftForge.EVENT_BUS.addListener(MyiaticCount::onServerTick);
+        MinecraftForge.EVENT_BUS.addListener(EntomophobiaPerformanceFix::onServerStopped);
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
         // Forge keeps the callbacks in a plain map, so register on the main thread.
         event.enqueueWork(() -> ForgeChunkManager.setForcedChunkLoadingCallback(ENTOMOPHOBIA, EntomophobiaPerformanceFix::releaseTickets));
+    }
+
+    private static void onServerStopped(ServerStoppedEvent event) {
+        Hives.forgetBrains();
+        MyiaticCount.reset();
     }
 
     /**

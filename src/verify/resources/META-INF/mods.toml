@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="0BSD"
+
+[[mods]]
+modId="entomophobiaperformancefix_verify"
+version="0.0.0"
+displayName="Entomophobia Performance Fix: dev checks"
+description='''Dev-only check commands for the headless tests of Entomophobia Performance Fix. Never shipped. Works with or without the patch.'''
+
+[[dependencies.entomophobiaperformancefix_verify]]
+    modId="entomophobia"
+    mandatory=true
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
